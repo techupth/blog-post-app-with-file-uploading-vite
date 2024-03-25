@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
@@ -57,6 +57,8 @@ function AuthProvider(props) {
 }
 
 // this is a hook that consume AuthContext
-const useAuth = () => React.useContext(AuthContext);
-
+const useAuth = () => {
+  const result = React.useContext(AuthContext);
+  return result;
+};
 export { AuthProvider, useAuth };
